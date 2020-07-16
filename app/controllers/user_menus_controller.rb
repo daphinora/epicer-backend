@@ -1,0 +1,2 @@
+class UserMenusController < ApplicationController
+end
