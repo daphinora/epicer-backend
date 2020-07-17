@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             puts token
             render json: {user: user, jwt: token}
         else
-            render json: {errors: user.errors.full_messages}, status: :not_acceptable
+            render json: {errors: user.errors.full_messages, status: :not_acceptable}
         end
     end
 
