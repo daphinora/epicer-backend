@@ -1,20 +1,21 @@
-class UserMenusController < ApplicationController
+class UserRecipesController < ApplicationController
+    skip_before_action :require_login
     def index
-        user_recipe = UserMenu.all
+        user_recipe = UserRecipe.all
         render json: user_recipe, except: [:created_at, :updated_at]
     end
  
     def show
-        @user_recipe = UserMenu.find(params[:id])
+        @user_recipe = UserRecipe.find(params[:id])
         render json: @user_recipe, except: [:created_at, :updated_at]
     end
 
     def new
-        user_recipe = UserMenu.new
+        user_recipe = UserRecipe.new
     end
 
     def create
-        user_recipe = UserMenu.create(user_recipe_params)
+        user_recipe = UserRecipe.create(user_recipe_params)
         render json: user_recipe
     end
 

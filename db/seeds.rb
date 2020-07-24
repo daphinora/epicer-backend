@@ -8,16 +8,16 @@ Ingredient.destroy_all
 RecipeIngredient.destroy_all
 
 # Users
-jack = User.create(username: "jackm", password: "passwordlol")
-josh = User.create(username: "gotro", password: "notpassword")
+jack = User.create(username: "jackm", password_digest: "passwordlol")
+josh = User.create(username: "gotro", password_digest: "notpassword")
 
 # Menus
 july_one = Menu.create(week: "5 July 2020 - 11 July 2020")
 july_two = Menu.create(week: "12 July 2020 - 18 July 2020")
 
 # Recipes
-recipe_one = Recipe.create(title: "Recipe One", cook_time: "45 minutes", image: "url here", instructions: "First, cook the thing. Second, eat the thing. Repeat as necessary.")
-recipe_two = Recipe.create(title: "Recipe Two", cook_time: "90 minutes", image: "url here", instructions: "First, cook the thing. Second, eat the thing. Repeat as necessary.")
+recipe_one = Recipe.create(title: "Recipe One", cook_time: "45 minutes", image: "url here")
+recipe_two = Recipe.create(title: "Recipe Two", cook_time: "90 minutes", image: "url here")
 
 # Ingredients
 ingredient_one = Ingredient.create(name: "eggs", image: "egg url here")
