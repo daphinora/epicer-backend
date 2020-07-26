@@ -16,13 +16,18 @@ class RecipesController < ApplicationController
 
     def create
         recipe = Recipe.create(recipe_params)
-        render json: recipe
+        menu_recipe = MenuRecipe.create(menu_recipe_params)
+        render json: recipe, menu_recipe
     end
 
     private
 
     def recipe_params
-        params.require(:recipe).permit(:text, :cook_time, :image, :instructions)
+        params.require(:recipe).permit(:title, :cook_time, :ref_id)
     end
+
+    # def menu_recipe_params
+    #     params.require(:menu_recipe).permit(:recipe_id, :menu_id, :weekday, :meal, :date)
+    # end
 
 end
