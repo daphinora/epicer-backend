@@ -6,7 +6,7 @@ class MenuRecipesController < ApplicationController
         else
             menu_recipes = MenuRecipe.all
         end
-        render json: menu_recipes, except: [:created_at, :updated_at]
+        render json: menu_recipes, except: [:created_at, :updated_at], include: [:recipe]
     end
  
     def show
