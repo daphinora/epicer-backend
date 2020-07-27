@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
     skip_before_action :require_login
     def index
-        recipes = Recipe.all
+        if params[:ref_id]
+            recipes = Recipe.where("ref_id = #{params[:ref_id]}")
+        else
+            recipes = Recipe.all
+        end
         render json: recipes, except: [:created_at, :updated_at]
     end
  
@@ -16,7 +20,7 @@ class RecipesController < ApplicationController
 
     def create
         recipe = Recipe.create(recipe_params)
-        # menu_recipe = MenuRecipe.create(menu_recipe_params)
+        menu_recipe = MenuRecipe.create(recipe_id: recipe.id, menu_id: params["menu_id"], meal: params["meal"], weekday: params["weekday"])
         render json: recipe
     end
 
@@ -25,9 +29,5 @@ class RecipesController < ApplicationController
     def recipe_params
         params.require(:recipe).permit(:title, :cook_time, :ref_id)
     end
-
-    # def menu_recipe_params
-    #     params.require(:menu_recipe).permit(:recipe_id, :menu_id, :weekday, :meal, :date)
-    # end
 
 end
