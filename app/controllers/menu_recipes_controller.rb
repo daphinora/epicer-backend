@@ -26,6 +26,6 @@ class MenuRecipesController < ApplicationController
     private
 
     def menu_recipe_params
-        params.require(:menu_recipe).permit(:menu_id, :recipe_id, :date, :meal, :weekday)
+        params.require(:menu_recipe).permit(:menu_id, :recipe_id, :meal, :weekday)
     end
 end

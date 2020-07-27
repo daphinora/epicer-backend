@@ -28,8 +28,8 @@ UserMenu.create(user_id: jack.id, menu_id: july_one.id)
 UserMenu.create(user_id: josh.id, menu_id: july_two.id)
 
 # MenuRecipes
-MenuRecipe.create(menu_id: july_one.id, recipe_id: recipe_one.id, date: "8 July 2020", meal: "breakfast", weekday: "Wednesday")
-MenuRecipe.create(menu_id: july_two.id, recipe_id: recipe_two.id, date: "12 July 2020", meal: "snack", weekday: "Sunday")
+MenuRecipe.create(menu_id: july_one.id, recipe_id: recipe_one.id, meal: "Breakfast", weekday: "Wednesday")
+MenuRecipe.create(menu_id: july_two.id, recipe_id: recipe_two.id, meal: "Snack", weekday: "Sunday")
 
 # RecipeIngredients
 RecipeIngredient.create(recipe_id: recipe_one.id, ingredient_id: ingredient_one.id, amount: "4")

@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_07_24_164519) do
   create_table "menu_recipes", force: :cascade do |t|
     t.integer "menu_id"
     t.integer "recipe_id"
-    t.string "date"
     t.string "meal"
     t.string "weekday"
     t.datetime "created_at", precision: 6, null: false
