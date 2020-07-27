@@ -1,5 +1,6 @@
 class RecipeIngredientsController < ApplicationController
-        def index
+    skip_before_action :require_login
+    def index
         recipe_ingredient = RecipeIngredient.all
         render json: recipe_ingredient, except: [:created_at, :updated_at]
     end

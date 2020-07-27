@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :recipe_ingredients
   resources :ingredients
   resources :menu_recipes
-  resources :user_menus
   resources :menus
   resources :users
   resources :recipes
+  resources :user_menus
 
   resource :users, only: [:create]
   post "/login", to: "auth#login"

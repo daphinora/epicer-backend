@@ -16,8 +16,8 @@ class RecipesController < ApplicationController
 
     def create
         recipe = Recipe.create(recipe_params)
-        menu_recipe = MenuRecipe.create(menu_recipe_params)
-        render json: recipe, menu_recipe
+        # menu_recipe = MenuRecipe.create(menu_recipe_params)
+        render json: recipe
     end
 
     private

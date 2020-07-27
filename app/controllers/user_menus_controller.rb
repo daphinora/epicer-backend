@@ -1,26 +1,31 @@
 class UserMenusController < ApplicationController
+    skip_before_action :require_login
     def index
-        user_recipe = UserMenu.all
-        render json: user_recipe, except: [:created_at, :updated_at]
+        if params[:user]
+            user_menus = UserMenu.where("user_id = #{params[:user]}")
+        else
+            user_menus = UserMenu.all
+        end
+        render json: user_menus, except: [:created_at, :updated_at]
     end
  
     def show
-        @user_recipe = UserMenu.find(params[:id])
-        render json: @user_recipe, except: [:created_at, :updated_at]
+        @user_menu = UserMenu.find(params[:id])
+        render json: @user_menu, except: [:created_at, :updated_at]
     end
 
     def new
-        user_recipe = UserMenu.new
+        user_menu = UserMenu.new
     end
 
     def create
-        user_recipe = UserMenu.create(user_recipe_params)
-        render json: user_recipe
+        user_menu = UserMenu.create(user_menu_params)
+        render json: user_menu
     end
 
     private
 
-    def user_recipe_params
-        params.require(:user_recipe).permit(:user_id, :recipe_id)
+    def user_menu_params
+        params.require(:user_menu).permit(:user_id, :menu_id)
     end
 end

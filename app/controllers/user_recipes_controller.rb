@@ -1,8 +1,8 @@
 class UserRecipesController < ApplicationController
     skip_before_action :require_login
     def index
-        user_recipe = UserRecipe.all
-        render json: user_recipe, except: [:created_at, :updated_at]
+        user_recipes = UserRecipe.all
+        render json: user_recipes, except: [:created_at, :updated_at]
     end
  
     def show

@@ -1,10 +1,10 @@
 # Total Annihilation
 User.destroy_all
 Menu.destroy_all
-UserMenu.destroy_all
 Recipe.destroy_all
-MenuRecipe.destroy_all
 Ingredient.destroy_all
+UserMenu.destroy_all
+MenuRecipe.destroy_all
 RecipeIngredient.destroy_all
 
 # Users
@@ -16,8 +16,8 @@ july_one = Menu.create(week: "5 July 2020 - 11 July 2020")
 july_two = Menu.create(week: "12 July 2020 - 18 July 2020")
 
 # Recipes
-recipe_one = Recipe.create(title: "Recipe One", cook_time: "45 minutes", image: "url here")
-recipe_two = Recipe.create(title: "Recipe Two", cook_time: "90 minutes", image: "url here")
+recipe_one = Recipe.create(title: "Recipe One", cook_time: "45 minutes")
+recipe_two = Recipe.create(title: "Recipe Two", cook_time: "90 minutes")
 
 # Ingredients
 ingredient_one = Ingredient.create(name: "eggs", image: "egg url here")

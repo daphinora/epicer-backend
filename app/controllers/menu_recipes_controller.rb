@@ -1,7 +1,12 @@
 class MenuRecipesController < ApplicationController
+    skip_before_action :require_login
     def index
-        menu_recipe = MenuRecipe.all
-        render json: menu_recipe, except: [:created_at, :updated_at]
+        if params[:menu]
+            menu_recipes = MenuRecipe.where("menu_id = #{params[:menu]}")
+        else
+            menu_recipes = MenuRecipe.all
+        end
+        render json: menu_recipes, except: [:created_at, :updated_at]
     end
  
     def show

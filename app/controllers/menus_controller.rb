@@ -1,6 +1,12 @@
 class MenusController < ApplicationController
+    skip_before_action :require_login
     def index
-        menus = Menu.all
+        if params[:user]
+            # byebug
+            menus = Menu.all.filter {|menu| menu.user_ids.include?(params[:user].to_i)}
+        else
+            menus = Menu.all
+        end
         render json: menus, except: [:created_at, :updated_at]
     end
  
