@@ -23,6 +23,11 @@ class MenuRecipesController < ApplicationController
         render json: menu_recipe
     end
 
+    def destroy
+        menu_recipe = MenuRecipe.find(params[:id])
+        menu_recipe.destroy
+    end
+
     private
 
     def menu_recipe_params

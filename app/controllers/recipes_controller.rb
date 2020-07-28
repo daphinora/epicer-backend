@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        recipe = Recipe.create(recipe_params)
+        recipe = Recipe.find_or_create_by(recipe_params)
         menu_recipe = MenuRecipe.create(recipe_id: recipe.id, menu_id: params["menu_id"], meal: params["meal"], weekday: params["weekday"])
         render json: recipe
     end
