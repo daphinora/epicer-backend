@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_163704) do
+ActiveRecord::Schema.define(version: 2020_07_24_164519) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(version: 2020_07_16_163704) do
   end
 
   create_table "menu_recipes", force: :cascade do |t|
-    t.string "menu_id"
-    t.string "recipe_id"
-    t.string "date"
+    t.integer "menu_id"
+    t.integer "recipe_id"
     t.string "meal"
     t.string "weekday"
     t.datetime "created_at", precision: 6, null: false
@@ -36,8 +35,8 @@ ActiveRecord::Schema.define(version: 2020_07_16_163704) do
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.string "recipe_id"
-    t.string "ingredient_id"
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
     t.string "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,22 +45,35 @@ ActiveRecord::Schema.define(version: 2020_07_16_163704) do
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.string "cook_time"
-    t.string "image"
-    t.string "instructions"
+    t.string "ref_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.string "instruction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_menus", force: :cascade do |t|
-    t.string "user_id"
-    t.string "menu_id"
+    t.integer "user_id"
+    t.integer "menu_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_recipes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
