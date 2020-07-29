@@ -21,6 +21,7 @@ class MenusController < ApplicationController
 
     def create
         menu = Menu.create(menu_params)
+        user_menu = UserMenu.create(menu_id: menu.id, user_id: params["user_id"])
         render json: menu
     end
 

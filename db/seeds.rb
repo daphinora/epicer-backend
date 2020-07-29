@@ -9,12 +9,10 @@ RecipeIngredient.destroy_all
 
 # Users
 jack = User.create(username: "jackm", password_digest: "passwordlol")
-josh = User.create(username: "gotro", password_digest: "notpassword")
+# josh = User.create(username: "gotro", password_digest: "notpassword")
 
 # Menus
-july_one = Menu.create(week: "5 July 2020 - 11 July 2020")
-july_two = Menu.create(week: "12 July 2020 - 18 July 2020")
-july_three = Menu.create(week: "12 July 2020 - 18 July 2020")
+july_one = Menu.create(week: "Jul 27 2020 - Aug 02 2020")
 
 # Recipes
 # recipe_one = Recipe.create(title: "Recipe One", cook_time: "45 minutes")
@@ -26,8 +24,8 @@ july_three = Menu.create(week: "12 July 2020 - 18 July 2020")
 
 # UserMenus
 UserMenu.create(user_id: jack.id, menu_id: july_one.id)
-UserMenu.create(user_id: josh.id, menu_id: july_two.id)
-UserMenu.create(user_id: jack.id, menu_id: july_three.id)
+# UserMenu.create(user_id: josh.id, menu_id: july_two.id)
+# UserMenu.create(user_id: jack.id, menu_id: july_three.id)
 
 # MenuRecipes
 # MenuRecipe.create(menu_id: july_one.id, recipe_id: recipe_one.id, meal: "Breakfast", weekday: "Wednesday")
